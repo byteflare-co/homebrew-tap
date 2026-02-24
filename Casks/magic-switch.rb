@@ -1,6 +1,6 @@
 cask "magic-switch" do
-  version "1.0.0"
-  sha256 "6d9f91a07bf81c5723ead28b8c2bdeacc59c0eb896ade5c77a14497d2a65b2ea"
+  version "1.0.1"
+  sha256 "68a1c56dc112a963733022e82f11fe242df6d2dd3e9d5b4b1cc71cfb0f4e1661"
 
   url "https://github.com/byteflare-co/magic-switch/releases/download/v#{version}/MagicSwitch-#{version}.zip"
   name "Magic Switch"
@@ -11,11 +11,11 @@ cask "magic-switch" do
 
   app "MagicSwitch.app"
 
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-cr", "#{appdir}/MagicSwitch.app"],
-                   sudo: false
-  end
+  caveats <<~EOS
+    This app is not notarized. On first launch, you may need to:
+      1. Right-click MagicSwitch.app → "Open", or
+      2. Run: xattr -cr /Applications/MagicSwitch.app
+  EOS
 
   zap trash: [
     "~/Library/Application Support/MagicSwitch",

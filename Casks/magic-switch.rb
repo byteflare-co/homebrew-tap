@@ -11,10 +11,16 @@ cask "magic-switch" do
 
   app "MagicSwitch.app"
 
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-cr", "#{appdir}/MagicSwitch.app"]
+  end
+
   caveats <<~EOS
-    This app is not notarized. On first launch, you may need to:
-      1. Right-click MagicSwitch.app → "Open", or
-      2. Run: xattr -cr /Applications/MagicSwitch.app
+    This app is not notarized by Apple.
+    The quarantine attribute is automatically removed during installation.
+    If you still see a Gatekeeper warning, run:
+      xattr -cr /Applications/MagicSwitch.app
   EOS
 
   zap trash: [

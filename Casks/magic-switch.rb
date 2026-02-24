@@ -1,6 +1,6 @@
 cask "magic-switch" do
   version "1.0.1"
-  sha256 "68a1c56dc112a963733022e82f11fe242df6d2dd3e9d5b4b1cc71cfb0f4e1661"
+  sha256 "ffa0af8011ba435fa395b880015194824bf79d29d5cb3d71254c330767e87570"
 
   url "https://github.com/byteflare-co/magic-switch/releases/download/v#{version}/MagicSwitch-#{version}.zip"
   name "Magic Switch"

@@ -11,6 +11,12 @@ cask "magic-switch" do
 
   app "MagicSwitch.app"
 
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-cr", "#{appdir}/MagicSwitch.app"],
+                   sudo: false
+  end
+
   zap trash: [
     "~/Library/Application Support/MagicSwitch",
     "~/Library/Logs/MagicSwitch",

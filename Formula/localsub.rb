@@ -5,8 +5,8 @@
 class Localsub < Formula
   desc "Generate Japanese subtitles and captioned videos locally"
   homepage "https://github.com/byteflare-co/localsub"
-  url "https://github.com/byteflare-co/localsub/releases/download/v0.1.0-alpha.1/localsub-v0.1.0-alpha.1-source.tar.gz"
-  sha256 "76b004d3bf97b1bca04a89f62152c291ba8d89fd4ef7eb1094d03b8f4c9dca2d"
+  url "https://github.com/byteflare-co/localsub/releases/download/v0.1.0-alpha.2/localsub-v0.1.0-alpha.2-source.tar.gz"
+  sha256 "89d94eb13cdf6a3344b2d29a04b3792453e1495f601ceed2a41b99c06c3e291f"
   license "Apache-2.0"
 
   depends_on xcode: ["26.0", :build]
@@ -23,6 +23,10 @@ class Localsub < Formula
     <<~EOS
       Run `localsub doctor` before processing the first video.
       Apple Speech and Translation model assets are managed separately by macOS.
+      Update checks are disabled by default. To opt in after reviewing the disclosure, run:
+        localsub update-check enable --acknowledge-metadata
+      GitHub and network operators can observe IP, request time, and LocalSub version.
+      Disable again with `localsub update-check disable`.
     EOS
   end
 
